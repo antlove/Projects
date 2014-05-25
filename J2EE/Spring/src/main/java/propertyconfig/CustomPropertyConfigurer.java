@@ -1,10 +1,8 @@
 package propertyconfig;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Map.Entry;
-
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
@@ -16,6 +14,7 @@ public class CustomPropertyConfigurer extends PropertyPlaceholderConfigurer{
 			ConfigurableListableBeanFactory beanFactoryToProcess,
 			Properties props) throws BeansException {
 		
+		// cache the properties
 		PropertyPlaceholderHelper helper = new PropertyPlaceholderHelper(
 				DEFAULT_PLACEHOLDER_PREFIX, DEFAULT_PLACEHOLDER_SUFFIX, DEFAULT_VALUE_SEPARATOR, false);
 		for(Entry<Object,Object> entry:props.entrySet()){
@@ -34,9 +33,4 @@ public class CustomPropertyConfigurer extends PropertyPlaceholderConfigurer{
 	public static String getProperty(String key){
 		return properties.get(key);
 	}
-	
-
-	
-	
-	
 }

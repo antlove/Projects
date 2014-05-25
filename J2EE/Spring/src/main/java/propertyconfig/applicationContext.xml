@@ -6,7 +6,6 @@
     http://www.springframework.org/schema/aop  
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"  
     default-lazy-init="true" default-autowire="byName" default-init-method="" default-destroy-method="">  
-    <!-- 用于读取properties文件，此处将数据库连接的用户名密码等存在jdbc.properties文件中 -->  
     <bean id="propertyConfigurer"  class="propertyconfig.CustomPropertyConfigurer">  
         <property name="locations">  
             <list>  
