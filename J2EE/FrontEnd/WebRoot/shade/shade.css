@@ -1,0 +1,11 @@
+.shade {
+	width: 100%;
+	position: absolute;
+	height:100%;
+	background-color: black;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+	left:0;
+	top:0;
+	z-index:1001;
+}
