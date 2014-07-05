@@ -1,8 +1,9 @@
 package web.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletResponse;
@@ -33,15 +34,18 @@ public class DisplayController {
 	}
 	
 	@RequestMapping(value="display/random")
-	public @ResponseBody int displayJson() throws UnsupportedEncodingException{
-		return displayService.getRandomNumber();
+	public @ResponseBody String displayJson() throws Exception{
+		int randomValue = displayService.getRandomNumber();
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("randomValue", randomValue);
+		ObjectMapper objectMapper = new ObjectMapper();  
+		String result = objectMapper.writeValueAsString(map);  
+		return result;
 	}
 	
 	@RequestMapping(value="display/user",produces={"application/json;charset=UTF-8"})
 	public @ResponseBody List<User> displayUser(HttpServletResponse response) throws Exception{
 		User user = displayService.getUser();
-		ObjectMapper objectMapper = new ObjectMapper();  
-		String result = objectMapper.writeValueAsString(user);  
 		List<User> users = new ArrayList<User>();
 		users.add(user);
 		return users; 
