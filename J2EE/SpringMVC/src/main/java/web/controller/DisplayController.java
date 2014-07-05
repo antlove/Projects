@@ -37,7 +37,7 @@ public class DisplayController {
 	public @ResponseBody String displayJson() throws Exception{
 		int randomValue = displayService.getRandomNumber();
 		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("randomValue", randomValue);
+		map.put("随机数", randomValue);
 		ObjectMapper objectMapper = new ObjectMapper();  
 		String result = objectMapper.writeValueAsString(map);  
 		return result;

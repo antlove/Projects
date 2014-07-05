@@ -5,29 +5,6 @@
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	<display-name>Spring3MVC</display-name>
 
-	<filter>
-		<filter-name>encodingFilter</filter-name>
-		<filter-class>web.filter.EncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	
-	<servlet>
-		<servlet-name>DisplayServlet</servlet-name>
-		<servlet-class>web.servlet.DisplayServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>DisplayServlet</servlet-name>
-		<url-pattern>/servlet/DisplayServlet</url-pattern>
-	</servlet-mapping>
-  
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.html</url-pattern>
@@ -53,10 +30,5 @@
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
-
-
-
-
 
 </web-app>
