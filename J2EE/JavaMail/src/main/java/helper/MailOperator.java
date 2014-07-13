@@ -59,7 +59,9 @@ public class MailOperator {
 		// add the text content
 		Multipart multipart = new MimeMultipart();
 		BodyPart textBodyPart = new MimeBodyPart();
-		textBodyPart.setText(body);
+		// textBodyPart.setText(body);
+		// set the email type as html
+		textBodyPart.setContent(body, "text/html;charset=utf-8");
 		multipart.addBodyPart(textBodyPart);
         
 		// add the attachment
