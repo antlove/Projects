@@ -50,6 +50,7 @@ public class Server {
 						System.out.println("do write ...");
 						SocketChannel sc = (SocketChannel) key.channel();
 						sc.close();
+						key.cancel();
 					}
 				}
 			}
