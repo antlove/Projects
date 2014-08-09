@@ -33,20 +33,20 @@ public class Server {
 				Iterator<SelectionKey> iterator = selectionKeySet.iterator();
 				while(iterator.hasNext()){
 					SelectionKey key = iterator.next();
-					iterator.remove();
+					iterator.remove();// must remove it
 					
-					if (key.readyOps() == SelectionKey.OP_ACCEPT) {
+					if (key.isAcceptable()) {
 						ServerSocketChannel serverSocketChannel = (ServerSocketChannel) key.channel();
 						SocketChannel sc = serverSocketChannel.accept();
 						sc.configureBlocking(false);
 						sc.register(selector, SelectionKey.OP_READ);
 						
-					}else if ((key.readyOps() & SelectionKey.OP_READ) == SelectionKey.OP_READ ) {
+					}else if (key.isReadable()) {
 						System.out.println("do read ...");
 						SocketChannel sc = (SocketChannel) key.channel();
 						sc.register(selector, SelectionKey.OP_WRITE);
 						
-					}else if (key.readyOps() == SelectionKey.OP_WRITE) {
+					}else if (key.isWritable()) {
 						System.out.println("do write ...");
 						SocketChannel sc = (SocketChannel) key.channel();
 						sc.close();
