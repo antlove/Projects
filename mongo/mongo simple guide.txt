@@ -1,0 +1,27 @@
+1. install mongodb
+a. download mongodb
+b. create a folder "D:\Program Files\mongodb-win32-i386-2.6.4\data\db"
+c. run the mongodb server [mongod.exe --dbpath "D:\Program Files\mongodb-win32-i386-2.6.4\data\db"]
+d. connect the mongodb [mongo.exe]
+
+2. mongodb simple CURD
+
+query the collection in db.
+db.test.find();
+
+insert a record in db.
+db.test.insert({name:"java"});
+
+update a record in db
+db.test.update(
+	{name:"java"},
+	{$set:{name:"iteye",operation:"update"}}
+);
+
+save a record in db
+db.test.save({operation:"save",data:"this is a test data"});
+
+remove the record in db
+db.test.remove({name:"iteye"});
+
+
