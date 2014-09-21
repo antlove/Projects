@@ -1,0 +1,10 @@
+mysql 5.0 备份/还原
+备份命令
+mysqldump -u{username} -p{password} -h{hostname} {databasename} > {backupfile}
+
+mysqldump -u{username} -p{password} -h{hostname} --database {databasename1} {databasename2} > {backupfile}
+
+还原
+mysql -u{username} -p{password} -h{hostname}  {databasename} < {backupfile}
+
+mysql -u{username} -p{password} -h{hostname} --database {databasename1} {databasename2} < {backupfile}
