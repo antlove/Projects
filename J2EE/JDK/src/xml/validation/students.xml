@@ -1,0 +1,8 @@
+<student>
+	<name>李华</name>
+	<birthday>1978.9.12</birthday>
+	<skill>Java</skill>
+	<skill>Oracle</skill>
+	<skill>C Sharp</skill>
+	<skill>SQL Server</skill>
+</student>
